@@ -9,34 +9,34 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     click_link @quote.name
 
-    asset_selector 'h1', text: @quote.name
+    assert_selector 'h1', text: @quote.name
   end
 
   test "Creating a new quote" do
     visit quotes_path
-    asset_selector "h1", text: "Quotes"
+    assert_selector "h1", text: "Quotes"
 
     click_on "New quote"
-    asset_selector "h1", text: "New quote"
+    assert_selector "h1", text: "New quote"
 
     fill_in "Name", with: "Capybara quote"
     click_on "Create quote"
 
-    asset_selector "h1", text: "Quotes"
+    assert_selector "h1", text: "Quotes"
     assert_text "Capybara quote"
   end
 
   test "Updating a quote" do
     visit quotes_path
-    asset_selector "h1", text: "Quotes"
+    assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    asset_selector "h1", text: "Edit quote"
+    assert_selector "h1", text: "Edit quote"
 
     fill_in "Name", with: "Updated quote"
     click_on "Update quote"
 
-    asset_selector "h1", text: "Quotes"
+    assert_selector "h1", text: "Quotes"
     assert_text "Updated quote"
   end
 
@@ -45,6 +45,6 @@ class QuotesTest < ApplicationSystemTestCase
     assert_text @quote.name
 
     click_on "Delete", match: :first
-    assert_no_test @quote.name
+    assert_no_text @quote.name
   end
 end
