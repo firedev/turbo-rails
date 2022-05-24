@@ -1,0 +1,7 @@
+<article>
+  <%= link_to quote.name, quote_path(quote) %>
+  <div>
+    <%= button_to "Delete", quote_path(quote), method: :delete %>
+    <%= button_to "Edit", edit_quote_path(quote) %>
+  </div>
+</article>
