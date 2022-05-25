@@ -17,7 +17,7 @@ class QuotesController < ApplicationController
     if @quote.save
       redirect_to quotes_path, notice: 'Great success'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class QuotesController < ApplicationController
     if @quote.update(quote_params)
       redirect_to quotes_path, notice: 'Great update'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
