@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[show edit update destroy]
 
@@ -5,8 +7,7 @@ class QuotesController < ApplicationController
     @quotes = Quote.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @quote = Quote.new
@@ -15,7 +16,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     if @quote.save
-      redirect_to quotes_path, notice: 'Great success'
+      redirect_to quotes_path, notice: "Great success"
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +26,7 @@ class QuotesController < ApplicationController
 
   def update
     if @quote.update(quote_params)
-      redirect_to quotes_path, notice: 'Great update'
+      redirect_to quotes_path, notice: "Great update"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path, notice: 'Wasted'
+    redirect_to quotes_path, notice: "Wasted"
   end
 
   private

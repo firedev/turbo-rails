@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
@@ -9,7 +11,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     click_link @quote.name
 
-    assert_selector 'h1', text: @quote.name
+    assert_selector "h1", text: @quote.name
   end
 
   test "Creating a new quote" do
